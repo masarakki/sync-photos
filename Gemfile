@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'aws-sdk-glacier'
+
 group :development do
   gem 'guard'
   gem 'guard-bundler'
