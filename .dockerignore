@@ -1,0 +1,6 @@
+spec
+Guardfile
+.rspec
+.git
+.circleci
+.env.production
