@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'aws-sdk-glacier'
+gem 'aws-sdk-s3'
+gem 'shared-mime-info'
 
 group :development do
   gem 'guard'

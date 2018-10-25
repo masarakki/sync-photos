@@ -1,32 +1,30 @@
-require 'aws-sdk-glacier'
+require 'aws-sdk-s3'
+require 'shared-mime-info'
 
 module SyncPhotos
   class Storage
     attr_reader :basedir
 
-    def initialize(bucket: nil, basedir: nil)
+    def initialize(bucket: nil, basedir: nil, prefix: '')
       @bucket = bucket
       @basedir = Pathname.new(basedir)
+      @prefix = prefix.gsub(/\A\//, '')
     end
 
     def client
-      @client ||= Aws::Glacier::Client.new
+      @client ||= Aws::S3::Client.new
     end
 
-    def vault
-      @vault ||= client.describe_vault(vault_name: @bucket)
-    rescue Aws::Glacier::Errors::ResourceNotFoundException
-      client.create_vault(vault_name: @bucket)
-      vault
+    def upload(path)
+      target = File.join(@prefix, pathname(path))
+      client.put_object(body: File.open(path), bucket: @bucket, key: target, content_type: MIME.check(path).to_s)
     end
-
-    def upload(path); end
 
     def pathname(path)
       fullpath = File.expand_path(path, basedir.to_s)
       raise unless fullpath.start_with?(basedir.to_s)
 
-      fullpath.gsub(/\A#{basedir}/, '')
+      fullpath.gsub(%r{\A#{basedir}/}, '')
     end
   end
 end

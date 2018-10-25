@@ -9,7 +9,7 @@ RSpec.describe SyncPhotos::Storage do
 
     context 'with fullpath' do
       let(:path) { '/test/hello/world' }
-      it { is_expected.to eq '/hello/world' }
+      it { is_expected.to eq 'hello/world' }
     end
 
     context 'with invalid fullpath' do
@@ -19,7 +19,7 @@ RSpec.describe SyncPhotos::Storage do
 
     context 'relative path' do
       let(:path) { './hello/world' }
-      it { is_expected.to eq '/hello/world' }
+      it { is_expected.to eq 'hello/world' }
     end
   end
 end
