@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'sidekiq'
+
 group :development do
   gem 'guard'
   gem 'guard-bundler'

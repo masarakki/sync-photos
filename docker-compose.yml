@@ -6,9 +6,23 @@ services:
   watcher:
     build: .
     image: masarakki/sync-photos
-    command: env
     env_file: .env.production
+    command: env
+    environment:
+      - REDIS_URL=redis://redis
     volumes:
       - "~/Pictures:/Pictures"
+    depends_on:
+      - redis
+  sidekiq:
+    build: .
+    image: masarakki/sync-photos
+    restart: always
+    env_file: .env.production
+    command: bundle exec sidekiq -q syncphotos -r ./lib/sync-photos.rb -C ./config.yml
+    environment:
+      - REDIS_URL=redis://redis
+    volumes:
+       - "~/Pictures:/Pictures"
     depends_on:
       - redis
