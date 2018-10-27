@@ -1,0 +1,5 @@
+Naming/FileName:
+  Exclude:
+    - 'lib/sync-photos.rb'
+Style/Documentation:
+  Enabled: false

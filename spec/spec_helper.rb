@@ -1,5 +1,6 @@
 $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 require 'pry'
+require 'sync-photos'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

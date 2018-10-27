@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'aws-sdk-s3'
 gem 'sidekiq'
 
 group :development do
