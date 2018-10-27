@@ -1,0 +1,7 @@
+:verbose: true
+:concurrency: 4
+:queues:
+  - syncphotos
+production:
+  :concurrency: 16
+  :verbose: false
