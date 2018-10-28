@@ -21,6 +21,17 @@ services:
       - pictures:/Pictures
     depends_on:
       - redis
+  web:
+    build: .
+    image: masarakki/sync-photos
+    env_file: .env.production
+    command: bundle exec rackup -p 9292 -o 0.0.0.0 -E production
+    environment:
+      - REDIS_URL=redis://redis
+    ports:
+      - "9292:9292"
+    depends_on:
+      - redis
   sidekiq:
     build: .
     image: masarakki/sync-photos

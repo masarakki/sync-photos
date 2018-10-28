@@ -69,6 +69,7 @@ GEM
     pry-doc (0.13.4)
       pry (~> 0.11)
       yard (~> 0.9.11)
+    puma (3.11.0)
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
@@ -124,6 +125,7 @@ DEPENDENCIES
   mime-types
   pry
   pry-doc
+  puma
   rake
   rspec
   rubocop
