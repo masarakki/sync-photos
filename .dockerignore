@@ -1,5 +1,6 @@
 spec
 Guardfile
+.rubocop.yml
 .rspec
 .git
 .circleci

@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'aws-sdk-s3'
+gem 'mime-types'
+gem 'shared-mime-info'
 gem 'sidekiq'
 
 group :development do
