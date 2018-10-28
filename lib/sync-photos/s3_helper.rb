@@ -11,7 +11,7 @@ module SyncPhotos
       key = keyname(path)
       meta = client.head_object(bucket: ENV['BUCKET'], key: key)
       File.mtime(path) > meta['last_modified']
-    rescue Aws::S3::Errors::NotFound
+    rescue Aws::S3::Errors::NotFound, Aws::S3::Errors::Forbidden
       true
     end
 

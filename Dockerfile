@@ -15,7 +15,7 @@ COPY Gemfile Gemfile.lock /sync-photos/
 RUN bundle install -j4 --without test development
 
 COPY . /sync-photos/
-ENV DIR=/Picutres
+ENV DIR=/Pictures
 EXPOSE 9292
 
 CMD ["bundle", "exec", "ruby", "--version"]

@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/sync-photos'
+
+Dir.glob(File.join(ENV['DIR'], '**', '*.CR2')) do |file|
+  SyncPhotos::CheckRawWorker.perform_async(file)
+end
