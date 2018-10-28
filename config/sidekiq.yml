@@ -1,7 +1,8 @@
 :verbose: true
 :concurrency: 4
 :queues:
-  - syncphotos
+  - [upload, 5]
+  - [check, 1]
 production:
   :concurrency: 16
   :verbose: false

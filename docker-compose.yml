@@ -26,7 +26,7 @@ services:
     image: masarakki/sync-photos
     restart: always
     env_file: .env.production
-    command: bundle exec sidekiq -q syncphotos -r ./lib/sync-photos.rb -C ./config.yml
+    command: bundle exec sidekiq -r ./lib/sync-photos.rb -e production
     environment:
       - REDIS_URL=redis://redis
     volumes:
