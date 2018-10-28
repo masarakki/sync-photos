@@ -1,4 +1,11 @@
-version: '3'
+version: '3.7'
+volumes:
+  pictures:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/masaki/Pictures
 services:
   redis:
     image: redis:alpine
@@ -11,7 +18,7 @@ services:
     environment:
       - REDIS_URL=redis://redis
     volumes:
-      - "~/Pictures:/Pictures"
+      - pictures:/Pictures
     depends_on:
       - redis
   sidekiq:
@@ -23,6 +30,6 @@ services:
     environment:
       - REDIS_URL=redis://redis
     volumes:
-       - "~/Pictures:/Pictures"
+       - pictures:/Pictures
     depends_on:
       - redis
