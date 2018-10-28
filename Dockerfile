@@ -16,5 +16,6 @@ RUN bundle install -j4 --without test development
 
 COPY . /sync-photos/
 ENV DIR=/Picutres
+EXPOSE 9292
 
 CMD ["bundle", "exec", "ruby", "--version"]

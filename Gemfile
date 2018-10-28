@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'aws-sdk-s3'
 gem 'mime-types'
+gem 'puma'
 gem 'shared-mime-info'
 gem 'sidekiq'
 
