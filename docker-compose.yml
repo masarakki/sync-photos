@@ -41,6 +41,17 @@ services:
     environment:
       - REDIS_URL=redis://redis
     volumes:
-       - pictures:/Pictures
+      - pictures:/Pictures
+    depends_on:
+      - redis
+  upload_raw:
+    build: .
+    image: masarakki/sync-photos
+    env_file: .env.production
+    command: bundle exec ruby bin/upload_raw
+    environment:
+      - REDIS_URL=redis://redis
+    volumes:
+      - pictures:/Pictures
     depends_on:
       - redis

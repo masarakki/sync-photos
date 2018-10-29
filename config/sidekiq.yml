@@ -1,5 +1,5 @@
 :verbose: true
-:concurrency: 4
+:concurrency: 8
 :queues:
   - [upload, 5]
   - [check, 1]
