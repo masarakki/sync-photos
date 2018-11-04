@@ -127,6 +127,7 @@ DEPENDENCIES
   pry-doc
   puma
   rake
+  rb-inotify
   rspec
   rubocop
   shared-mime-info

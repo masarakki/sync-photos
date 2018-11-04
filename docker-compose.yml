@@ -14,7 +14,7 @@ services:
     build: .
     image: masarakki/sync-photos
     env_file: .env.production
-    command: env
+    command: bundle exec ruby bin/watch
     environment:
       - REDIS_URL=redis://redis
     volumes:
