@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'rb-inotify'
+require_relative '../lib/sync-photos'
+
+notifier = INotify::Notifier.new
+notifier.watch(ENV['DIR'], :close_write, :recursive) do |event|
+  filename = event.absolute_name
+  ext = File.extname(filename)
+  SyncPhotos::UploadRawWorker.perform_async(filename) if ext == '.CR2'
+end
+notifier.run

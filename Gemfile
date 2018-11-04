@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'aws-sdk-s3'
 gem 'mime-types'
 gem 'puma'
+gem 'rb-inotify'
 gem 'shared-mime-info'
 gem 'sidekiq'
 
