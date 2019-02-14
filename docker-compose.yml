@@ -13,6 +13,7 @@ services:
   watcher:
     build: .
     image: masarakki/sync-photos
+    restart: always
     env_file: .env.production
     command: bundle exec ruby bin/watch
     environment:
@@ -24,6 +25,7 @@ services:
   web:
     build: .
     image: masarakki/sync-photos
+    restart: always
     env_file: .env.production
     command: bundle exec rackup -p 9292 -o 0.0.0.0 -E production
     environment:
